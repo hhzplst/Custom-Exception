@@ -2,14 +2,15 @@ namespace CustomException {
   public class Thermostat {
     public double LowerLimit {get; set;}
     public double HigherLimit {get; set;}
+    private double temp;
     public double Temp {
       get {
-        return Temp;
+        return temp;
       } 
       set{
-        if (value < LowerLimit) throw new TemperatureTooLow();
-        if (value > HigherLimit) throw new TemperatureTooHigh();
-        Temp = value;
+        if (value < LowerLimit) throw new TemperatureTooLow("Temperature Too Low!");
+        if (value > HigherLimit) throw new TemperatureTooHigh("Temperature Too High!");
+        temp = value;
       }
     }
     public Thermostat(double lowerLimit, double higherLimit) {
